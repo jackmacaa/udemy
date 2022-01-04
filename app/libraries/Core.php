@@ -50,11 +50,15 @@
                 $this->params);
         }
 
+        // Used to simplify the URL and not show redundant words
         public function getUrl()
         {
+            //
             if(isset($_GET['url']))
             {
+                // if user has a slash at the end of URL e.g. localhost/shareposts/post/ then removes it
                 $url = rtrim($_GET['url'], "/");
+                // knows what chars can exist in a URL and removes ones that aren't
                 $url = filter_var($url, FILTER_SANITIZE_URL);
                 return explode("/", $url);
             }
