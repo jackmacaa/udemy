@@ -6,13 +6,16 @@
 
         }
 
+        // Used to load the view and pass data through to the webpage
+        // can access data['title'] on page index.php in folder pages
         public function index()
         {
             if(isLoggedIn())
             {
                 redirect('posts');
             }
-
+            // This data could be coming straight from the db e.g. posts
+            // can render the posts with html on the view page
             $data = [
                 'title' => 'SharePosts',
                 'description' => 'Simple social network built on the JackmacMVC PHP Framework'

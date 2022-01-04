@@ -12,4 +12,4 @@
     // Site Name
     const SITENAME = 'SharePosts';
     // App Version
-    const APPVERSION = '1.0.0';
+    const APPVERSION = '0.1.0';
