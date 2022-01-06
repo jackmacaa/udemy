@@ -22,7 +22,9 @@
             // SET DSN
             $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
             $options = array(
+                // checks to see if already connection to save performance
                 PDO::ATTR_PERSISTENT => true,
+                // there are 3 error modes silent warning and exception
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             );
 
@@ -30,6 +32,7 @@
             try {
                 $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
             } catch (PDOException $e) {
+                // built in function to get error msg
                 $this->error = $e->getMessage();
                 echo $this->error;
             }
@@ -45,7 +48,9 @@
         // Bind values
         public function bind($param, $value, $type = null)
         {
+            // checking if they added a type and if not setting one
             if (is_null($type)) {
+                // set to true always want it to run
                 $type = match (true) {
                     is_int($value) => PDO::PARAM_INT,
                     is_bool($value) => PDO::PARAM_BOOL,
@@ -53,6 +58,7 @@
                     default => PDO::PARAM_STR,
                 };
             }
+            // built in bindvalue func
             $this->stmt->bindValue($param, $value, $type);
         }
 

@@ -8,6 +8,7 @@
                 redirect('users/login');
             }
 
+            // runs the post model which runs the db instance so we can get data from model to controller then to view
             $this->postModel = $this->model('Post');
             $this->userModel = $this->model('User');
 
@@ -15,7 +16,7 @@
 
         public function index()
         {
-            // Get posts
+            // Get posts via model to then send on to view
             $posts = $this->postModel->getPosts();
 
             $data = [

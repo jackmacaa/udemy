@@ -10,6 +10,7 @@
 
         public function getPosts()
         {
+            // calls our query func which runs built in prepare method
             $this->db->query('SELECT *,
                                 posts.id as postId,
                                 users.id as userId,
@@ -21,9 +22,9 @@
                                 ORDER BY posts.created_at DESC
                                 ');
 
-            $results = $this->db->resultSet();
+            // runs our func resultset puts all returned
 
-            return $results;
+            return $this->db->resultSet();
         }
 
         public function addPost($data)
