@@ -36,6 +36,7 @@
         }
 
         // Prepare statement with query
+        // dbh is the PDO instance from the constructor and prepare is a built in function to prevent SQL injection
         public function query($sql)
         {
             $this->stmt = $this->dbh->prepare($sql);
