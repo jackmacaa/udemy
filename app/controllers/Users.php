@@ -14,6 +14,7 @@
                 // Process form
 
                 // Sanitize POST data
+                // Just in case, already have sql prepared statements
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 // Init data
@@ -87,7 +88,7 @@
                     }
                     else
                     {
-                        die('Somthing wrong');
+                        die('Something wrong');
                     }
                 }
                 else
