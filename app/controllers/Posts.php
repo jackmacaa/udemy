@@ -41,7 +41,7 @@
                     'body_err' => ''
                 ];
 
-                // Validate title
+                // Validate
                 if(empty($data['title']))
                 {
                     $data['title_err'] = 'Please enter a title';

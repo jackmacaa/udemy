@@ -65,7 +65,7 @@
             }
         }
 
-
+        // This will be used by the show page to get the uniques posts data
         public function getPostById($id)
         {
             $this->db->query('SELECT * FROM posts WHERE id = :id');
